@@ -21,7 +21,9 @@
         </div>
         <h1 class="text-center">Products</h1>
         <div class="row">
-            <div class="col-md-2"></div>
+            <div class="col-md-2">
+                <a class="btn btn-success" href="{{ route('product.create') }}">Add Product</a>
+            </div>
             <div class="col-md-8">
                 <table class="table table-primary table-striped">
                     <thead>
