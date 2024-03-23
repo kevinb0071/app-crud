@@ -12,6 +12,19 @@
 
 <body>
     <h1 class="text-center">Create a Product</h1>
+    <div class="row">
+        <div class="col">
+            @if($errors->any())
+                <ul class="list-group">
+                    @foreach ($errors as $error)
+                      <li class="list-group-item">
+                        {{ $error }}
+                      </li>  
+                    @endforeach
+                </ul>
+            @endif
+        </div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-md-4"></div>

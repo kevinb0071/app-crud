@@ -9,12 +9,15 @@ class ProductController extends Controller
 {
     // Get the product page
     public function index() {
-        return view('products.index');
+        $products = Product::all();
+        return view('products.index', ['products' => $products]);
     }
 
     // Show the Product Form
     public function create() {
+        
         return view('products.create');
+        
     }
     
     // Create the store to insert into Product table
@@ -22,7 +25,7 @@ class ProductController extends Controller
         $data = $request->validate([
             'name' => 'required',
             'qty' => 'required|numeric',
-            'price' => 'required|decimal:2',
+            'price' => 'required|decimal:0,2',
             'description' => 'nullable'
         ]);
 
