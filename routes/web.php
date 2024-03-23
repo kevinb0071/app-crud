@@ -25,3 +25,9 @@ Route::get('/product/create', [ProductController::class, 'create'])->name('produ
 
 // Route for the post the Product to the database
 Route::post('/product', [ProductController::class, 'store'])->name('product.store');
+
+// Route to the Edit Product Form
+Route::get('/product/{product}/edit', [ProductController::class, 'edit'])->name('product.edit');
+
+// Route to Update the Products
+Route::put('/product/{product}/update', [ProductController::class, 'update'])->name('product.update');

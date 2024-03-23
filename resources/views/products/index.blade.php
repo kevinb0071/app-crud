@@ -12,6 +12,13 @@
 
 <body>
     <div class="container">
+        <div>
+            @if(session()->has('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
+        </div>
         <h1 class="text-center">Products</h1>
         <div class="row">
             <div class="col-md-2"></div>
@@ -24,6 +31,8 @@
                             <th scope="col">Quantity</th>
                             <th scope="col">Price</th>
                             <th scope="col">Description</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,6 +43,12 @@
                                 <td>{{ $product->qty }}</td>
                                 <td>${{ $product->price }}</td>
                                 <td>{{ $product->description }}</td>
+                                <td><a class="btn btn-warning" href="{{route('product.edit', ['product' => $product])}}">Edit</a></td>
+                                <td>
+                                    <form action="">
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
