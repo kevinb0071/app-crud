@@ -48,6 +48,12 @@ class ProductController extends Controller
         ]);
 
         $product->update($data);
-        return redirect('product')->with('success', 'The product was updated');
+        return redirect('product')->with('success', 'The product was successfully updated');
+    }
+
+    // Delete the Product
+    public function destroy(Product $product) {
+        $product->delete();
+        return redirect('product')->with('success', 'The product was successfully deleted.');
     }
 }

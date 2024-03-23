@@ -45,7 +45,9 @@
                                 <td>{{ $product->description }}</td>
                                 <td><a class="btn btn-warning" href="{{route('product.edit', ['product' => $product])}}">Edit</a></td>
                                 <td>
-                                    <form action="">
+                                    <form action="{{ route('product.destroy', ['product' => $product]) }}" method="post">
+                                        @csrf
+                                        @method('delete')
                                         <button type="submit" class="btn btn-danger">Delete</button>
                                     </form>
                                 </td>
